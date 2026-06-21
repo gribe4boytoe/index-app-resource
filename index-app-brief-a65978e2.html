@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mk体育 · 快速识别 · 聚焦运动核心</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .page-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* 卡片通用系统 */
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04);
+      border: 1px solid #e6e9ed;
+      padding: 2rem 2rem 2.2rem;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    /* hero 区域 — 杂志式跨栏 */
+    .hero {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid #e0e4ea;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+      padding: 3rem 2.5rem;
+      margin-bottom: 2.8rem;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 2.5rem;
+      width: 60px;
+      height: 4px;
+      background: #1e2a3a;
+      border-radius: 4px;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-top: 0.6rem;
+      margin-bottom: 1rem;
+      color: #121a26;
+    }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #4a5568;
+      max-width: 75%;
+      line-height: 1.7;
+    }
+
+    /* 信息卡片组 */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .intro-grid .card {
+      margin-bottom: 0;
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      color: #121a26;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #334155;
+      margin-bottom: 1rem;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.6rem 0 0.2rem;
+    }
+
+    .feature-list li {
+      padding: 0.35rem 0;
+      font-size: 0.95rem;
+      color: #334155;
+      border-bottom: 1px dashed #eceff3;
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+
+    .feature-list li::before {
+      content: "–";
+      color: #7a879a;
+      font-weight: 300;
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .full-card {
+      width: 100%;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: #1e293b;
+    }
+
+    .faq-item p {
+      font-size: 0.93rem;
+      color: #475569;
+    }
+
+    /* 页尾访问提示 —— 杂志感的“引用”样式 */
+    .outro {
+      border-left: 4px solid #1e2a3a;
+      padding: 1.6rem 2rem;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #e6e9ed;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      margin-top: 1.2rem;
+    }
+
+    .outro p {
+      font-size: 1rem;
+      color: #1e2a3a;
+      margin-bottom: 0.5rem;
+    }
+
+    .outro a {
+      color: #1e2a3a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1.5px solid #bcc4ce;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .outro a:hover {
+      border-bottom-color: #1e2a3a;
+      color: #000;
+    }
+
+    .footer-note {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: #6b7a8b;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde2e8;
+      padding-top: 2rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 780px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+
+      .hero {
+        padding: 2rem 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero .sub {
+        max-width: 100%;
+        font-size: 0.95rem;
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .outro {
+        padding: 1.2rem 1.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+
+      .hero::before {
+        left: 1.5rem;
+        width: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 首页横幅 Hero 杂志大标题 -->
+  <div class="hero">
+    <h1>mk体育 · 运动信息界面</h1>
+    <div class="sub">
+      用户打开的第一眼即可判断平台属性——围绕体育赛事、数据索引与快速识别而设计的轻量级入口。没有冗余加载，聚焦于「我需要什么运动内容」这个核心问题。
+    </div>
+  </div>
+
+  <!-- 背景说明 + 三段自然介绍（网格布局） -->
+  <div class="intro-grid">
+    <!-- 卡片1：背景说明与用途 -->
+    <div class="card">
+      <h2>从识别到定位</h2>
+      <p>网站 <a href="https://index-app-mksport.com" style="color:#1e2a3a; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: #bcc4ce;">mk体育</a> 以索引式结构展现运动内容，访问者无需多层跳转即可辨别赛道类型、赛事阶段与信息聚合方式。页面布局强调模块边界，降低认知负荷。</p>
+      <p>适合对效率有要求的体育内容浏览者：通过统一的视觉语言快速定位自己关注的板块，而非在花哨界面中寻找入口。</p>
+    </div>
+
+    <!-- 卡片2：场景切入 —— 快速识别 -->
+    <div class="card">
+      <h2>使用场景与直觉</h2>
+      <p>无论你关注足球、篮球或综合赛事，界面以“类型—状态—数据”的隐性逻辑排列。日常查看比分、赛程或资讯，均能在三眼之内找到对应区域。减少无意义的点击，保持对运动本身的注意力。</p>
+      <ul class="feature-list">
+        <li>赛事状态标签一目了然（进行中 / 已结束 / 即将开赛）</li>
+        <li>信息层级以卡片和细线分割，不干扰阅读流</li>
+        <li>首页即索引，无需翻页即可评估内容覆盖面</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 第三段介绍：全宽卡片，补充设计理念与结构特点 -->
+  <div class="card full-card">
+    <h2>设计逻辑：轻量、克制、可扫描</h2>
+    <p>浅灰背景配合柔和阴影与细边框，目的不是装饰，而是让内容区域彼此独立，眼睛可以快速跳过不感兴趣的模块。<a href="https://index-app-mksport.com" style="color:#1e2a3a; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: #bcc4ce;">mk体育</a> 的页面结构有意避免大色块与高对比装饰，让信息本身成为视觉重心。每一个卡片都经过间距推敲，确保在手机与桌面端都有稳定的浏览节奏。</p>
+    <p>杂志式排版强调“留白与呼吸”——标题字体略大但不过重，正文颜色偏深灰而非纯黑，阅读时不易疲劳。这种处理方式更接近工具型产品，而非娱乐化体育门户。</p>
+  </div>
+
+  <!-- FAQ 摘要风格卡片（非完整问答，而是杂志式“你可能关心的问题”） -->
+  <div class="card full-card">
+    <h2>常见关注点</h2>
+    <div class="faq-item">
+      <strong>这个索引页的核心用途？</strong>
+      <p>帮助访问者在最短时间内理解平台提供哪些运动内容，以及如何进一步获取详细数据或动态。它本身是一个导航性质的信息总览。</p>
+    </div>
+    <div class="faq-item">
+      <strong>信息密度是否过高？</strong>
+      <p>刻意控制每段文字在40–70字之间，搭配列表与分层标题。即便初次访问，也可以在10秒内建立心理模型：左侧/上方是分类，中间是当前热点，下方是扩展链接。</p>
+    </div>
+    <div class="faq-item">
+      <strong>移动端适配与阅读体验</strong>
+      <p>所有卡片在窄屏下自动变为单列，间距保持舒适。触控目标（链接、按钮区域）均大于44pt，且链接文本带有下划线或底边装饰，符合无障碍基础要求。</p>
+    </div>
+  </div>
+
+  <!-- 页尾访问提示 —— 嵌入链接自然句 -->
+  <div class="outro">
+    <p>如果你希望直接了解当前体育内容架构，可以从 <a href="https://index-app-mksport.com">mk体育</a> 的首页开始，观察其模块划分与信息优先级。整个界面围绕“快速识别”而非“长时间停留”而设计，适合需要高效获取运动动态的用户。</p>
+  </div>
+
+  <div class="footer-note">
+    mk体育 · 索引式运动内容界面
+  </div>
+
+</div>
+</body>
+</html>
