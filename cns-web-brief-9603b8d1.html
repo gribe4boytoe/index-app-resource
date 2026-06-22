@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷速 · 简明指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f7f3ed;
+            font-family: Georgia, 'Times New Roman', 'Noto Serif SC', serif;
+            color: #2c241b;
+            line-height: 1.8;
+            padding: 2.5rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page {
+            max-width: 780px;
+            width: 100%;
+            background: #fffbee;
+            padding: 3rem 2.5rem;
+            border-radius: 32px 12px 32px 12px;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+        }
+        @media (max-width: 560px) {
+            body { padding: 1.2rem 0.8rem; }
+            .page { padding: 2rem 1.5rem; border-radius: 24px 8px 24px 8px; }
+        }
+        /* 开场 */
+        .opening {
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+            border-left: 4px solid #bfa88d;
+            padding-left: 1.2rem;
+            margin-bottom: 2.2rem;
+            font-weight: 400;
+            color: #4a3c2e;
+        }
+        .opening span {
+            display: block;
+            font-size: 1rem;
+            color: #7b6b58;
+            margin-top: 0.3rem;
+            letter-spacing: 0.5px;
+            font-style: italic;
+        }
+        /* 承接段落 */
+        .intro-text {
+            font-size: 1.08rem;
+            margin-bottom: 2.8rem;
+            text-indent: 2em;
+            text-align: justify;
+            word-break: break-word;
+        }
+        .intro-text a {
+            color: #7b5a3a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #bfa88d;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .intro-text a:hover {
+            color: #a37e5c;
+            text-decoration-color: #a37e5c;
+        }
+        /* 提示框 / 引用块 */
+        .notice-box {
+            background: #ede6db;
+            border-radius: 20px 4px 20px 4px;
+            padding: 1.6rem 2rem;
+            margin: 2rem 0 2.2rem 0;
+            border-left: 6px solid #b59a7c;
+            font-size: 0.98rem;
+            color: #2f2720;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+        }
+        .notice-box strong {
+            color: #6c5239;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        /* 特点列表 — 温和卡片 */
+        .features {
+            list-style: none;
+            margin: 2.4rem 0 1.8rem 0;
+        }
+        .features li {
+            background: #fcf7f0;
+            padding: 1.2rem 1.8rem;
+            margin-bottom: 1rem;
+            border-radius: 40px 8px 40px 8px;
+            border-left: 2px solid #d6c6b4;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: 0.1s ease;
+            font-size: 1.02rem;
+        }
+        .features li:last-child {
+            margin-bottom: 0;
+        }
+        .features li strong {
+            color: #6c5239;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+        .features li::before {
+            content: "·";
+            color: #b59a7c;
+            font-weight: 700;
+            font-size: 1.8rem;
+            vertical-align: middle;
+            margin-right: 10px;
+            line-height: 0;
+        }
+        @media (max-width: 480px) {
+            .features li {
+                padding: 1rem 1.2rem;
+                border-radius: 28px 4px 28px 4px;
+            }
+        }
+        /* FAQ 摘要（简洁） */
+        .faq-mini {
+            margin: 2.8rem 0 2rem 0;
+            border-top: 1px dashed #dacfc3;
+            padding-top: 2rem;
+        }
+        .faq-mini h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #5b4b39;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+        }
+        .faq-item q {
+            font-style: italic;
+            color: #4f3f2f;
+        }
+        .faq-item p {
+            margin-top: 0.2rem;
+            font-size: 0.96rem;
+            color: #5d4e3c;
+            padding-left: 1.2rem;
+            border-left: 2px solid #e2d4c4;
+        }
+        /* 温和结尾 */
+        .closing {
+            margin-top: 2.8rem;
+            padding: 1.6rem 0 0.4rem 0;
+            border-top: 1px solid #ddd0c0;
+            font-size: 1rem;
+            text-align: right;
+            color: #5f4e3b;
+            letter-spacing: 0.5px;
+        }
+        .closing i {
+            font-style: normal;
+            background: #e3d7c9;
+            padding: 0.1rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句 -->
+    <div class="opening">
+        一个简明的起点。
+        <span>从理解到使用，不过几步之遥</span>
+    </div>
+
+    <!-- 承接段落：简明指南 + 访问提醒 -->
+    <div class="intro-text">
+        很多时候，我们需要的不是繁复的说明，而是一条清晰的路标。关于 <a href="https://cns-web-leisu.com">雷速</a> 的访问与使用，这里有一份温和的梳理——既非操作手册，也不是功能清单，更像一位同路人的备忘。如果你刚刚接触，或希望回顾一些基础思路，下面的文字或许能带来一点从容。
+    </div>
+
+    <!-- 引用块 / 提示框：访问提醒 -->
+    <div class="notice-box">
+        <strong>☕ 访问提醒</strong><br>
+        网络环境与设备差异可能影响体验。建议在连接稳定的情况下打开 <a href="https://cns-web-leisu.com" style="color:#7b5a3a; text-decoration:underline; text-underline-offset:2px;">雷速</a>，并允许页面完成加载。部分功能依赖现代浏览器，保持更新会让过程更顺畅。不必着急，慢慢来。
+    </div>
+
+    <!-- 特点列表（从简明指南角度） -->
+    <ul class="features">
+        <li><strong>信息结构</strong> —— 归类清晰，减少翻找。常见问题与入口排列有序，适合按需查阅。</li>
+        <li><strong>轻量交互</strong> —— 避免过度弹窗与强制引导。页面响应直接，不打断阅读流。</li>
+        <li><strong>持续迭代</strong> —— 内容与功能根据反馈逐步调整，不以版本号堆砌，重在切实可用。</li>
+        <li><strong>场景适配</strong> —— 无论是快速浏览还是细致阅读，版式与字号都留出了呼吸空间。</li>
+    </ul>
+
+    <!-- FAQ 摘要 (温和呈现) -->
+    <div class="faq-mini">
+        <h3>▎ 你可能想了解的</h3>
+        <div class="faq-item">
+            <q>需要注册或登录吗？</q>
+            <p>大部分内容可直接访问，部分个性化功能视情况而定，页面会有明确提示。</p>
+        </div>
+        <div class="faq-item">
+            <q>是否适配手机？</q>
+            <p>页面采用响应式设计，在多数移动设备上可以正常浏览，横向内容会自适应调整。</p>
+        </div>
+        <div class="faq-item">
+            <q>遇到显示异常怎么办？</q>
+            <p>尝试刷新页面或更换浏览器。若问题持续，可检查网络设置或稍后重试。</p>
+        </div>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+        <i>阅读愉快，慢慢来。</i>
+    </div>
+
+</div>
+</body>
+</html>
